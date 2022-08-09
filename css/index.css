@@ -27,6 +27,7 @@ div.outer{
 img.intro{
   width: 50%;
   margin: 5vw;
+  padding-top: 20vw;
   opacity: 1;
   animation: fadein 3.5s;
 }
