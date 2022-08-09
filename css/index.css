@@ -21,10 +21,11 @@ t1 {
 div.outer{
   text-align: center;
   align-items: center;
+  width: 100%;
 }
 
 img.intro{
-  width: 40%;
+  width: 100%;
   opacity: 1;
   animation: fadein 3.5s;
 }
@@ -121,20 +122,6 @@ div.creation_list{
   display: flex;
 }
 
-
-div.outer{
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  background-color: white;
-  /* border-radius: 20px; */
-  /* margin-bottom: 10vw; */
-  /* margin-top: 20vw; */
-  box-shadow: 0 0 25px 25px white;
-  height: 100%;
-  align-items: center;
-  /* height: 100%; */
-}
 div.inner{
   text-align: center;
   max-width: 800px;
@@ -301,7 +288,7 @@ div.inner{
 
 @media screen and (max-width: 1024px) {
   img.intro{
-    width: 40%;
+    width: 100%;
     margin-bottom: 10%;
     margin-top: 10%;
   }
@@ -312,7 +299,8 @@ div.inner{
 
   div.title{
     font-size: 6vw;
-    height:15vh;
+    height:18vh;
+    margin-top: 10vw;
   }
 
   img.profile{
@@ -341,12 +329,11 @@ div.inner{
   }
 
   img.intro{
-    width: 40vh;
+    width: 80%;
     content:url("../contents/theo4.png");
   }
 
   code{
-    back
     font-size:3.2vw;
   }
 
