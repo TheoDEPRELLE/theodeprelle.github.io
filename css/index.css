@@ -8,10 +8,10 @@ body{
 t1 {
   color: black;
  font-size: 2.5vw;
-  -webkit-animation: fadein_text 4s; /* Safari, Chrome and Opera > 12.1 */
-   -moz-animation: fadein 3s; /* Firefox < 16 */
-    -ms-animation: fadein 3s; /* Internet Explorer */
-     -o-animation: fadein 3s; /* Opera < 12.1 */
+  -webkit-animation: fadein_text .9s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+     -o-animation: fadein 1s; /* Opera < 12.1 */
         /* animation: fadein 5s; */
 }
 
@@ -22,8 +22,8 @@ p{
 
 @keyframes fadein {
     0% { opacity: 0; filter : blur(70px);}
-    70% { opacity: 1; filter : blur(0px);}
-    100%   { opacity: 1; filter : blur(0px);}
+    20% { opacity: 1; filter : blur(0px);}
+    40%   { opacity: 1; filter : blur(0px);}
 }
 
 @keyframes fadein_text {
