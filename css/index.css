@@ -25,7 +25,8 @@ div.outer{
 }
 
 img.intro{
-  width: 100%;
+  width: 50%;
+  margin: 5vw;
   opacity: 1;
   animation: fadein 3.5s;
 }
@@ -287,11 +288,6 @@ div.inner{
 
 
 @media screen and (max-width: 1024px) {
-  img.intro{
-    width: 100%;
-    margin-bottom: 10%;
-    margin-top: 10%;
-  }
 
   t1 {
    font-size: 5vw;
@@ -299,7 +295,7 @@ div.inner{
 
   div.title{
     font-size: 6vw;
-    height:18vh;
+    height:15vh;
     margin-top: 10vw;
   }
 
@@ -329,6 +325,8 @@ div.inner{
   }
 
   img.intro{
+    margin-bottom: 10%;
+    margin-top: 10%;
     width: 80%;
     content:url("../contents/theo4.png");
   }
