@@ -5,17 +5,32 @@ body{
     color:#919191;
 }
 
+t1 {
+  color: black;
+ font-size: 2.5vw;
+  -webkit-animation: fadein_text 4s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: fadein 3s; /* Firefox < 16 */
+    -ms-animation: fadein 3s; /* Internet Explorer */
+     -o-animation: fadein 3s; /* Opera < 12.1 */
+        /* animation: fadein 5s; */
+}
+
 p{
   color:white;
 }
 
-t1 {
- font-size: 5vw;
-  -webkit-animation: fadein_text 5s; /* Safari, Chrome and Opera > 12.1 */
-   -moz-animation: fadein 5s; /* Firefox < 16 */ */
-    -ms-animation: fadein 5s; /* Internet Explorer */
-     -o-animation: fadein 5s; /* Opera < 12.1
-  /* animation: fadein 5s; */
+
+@keyframes fadein {
+    0% { opacity: 0; filter : blur(70px);}
+    70% { opacity: 1; filter : blur(0px);}
+    100%   { opacity: 1; filter : blur(0px);}
+}
+
+@keyframes fadein_text {
+    /* 0% { opacity: 0; } */
+    0%   { opacity: 0; letter-spacing: .4vw}
+    60%   { opacity: 0; letter-spacing: .4vw}
+    100%   { opacity: 1; letter-spacing: 0px}
 }
 
 div.outer{
@@ -25,23 +40,12 @@ div.outer{
 }
 
 img.intro{
-  width: 50%;
+  width: 40%;
   margin: 5vw;
-  padding-top: 20vw;
   opacity: 1;
   animation: fadein 3.5s;
 }
 
-t1 {
- font-size: 3vw;
-  -webkit-animation: fadein_text 5s; /* Safari, Chrome and Opera > 12.1 */
-   -moz-animation: fadein 5s; /* Firefox < 16 */
-    -ms-animation: fadein 5s; /* Internet Explorer */
-     -o-animation: fadein 5s; /* Opera < 12.1 */
-   animation: fadein 5s;
-   text-align: start;
-   color:black;
-}
 
 div.title{
   background-color: white;
@@ -302,6 +306,7 @@ div.inner{
 
   img.profile{
     width: 100%;
+    padding-top: 20vw;
   }
 
   div.divprofile_text{
@@ -327,9 +332,10 @@ div.inner{
 
   img.intro{
     margin-bottom: 10%;
-    margin-top: 10%;
+    margin-top: 30%;
     width: 80%;
     content:url("../contents/theo4.png");
+    animation: fadein 5s;
   }
 
   code{
@@ -350,7 +356,9 @@ div.inner{
 
   figure.creations{
     width:100%;
-    padding: 6%;
+    padding: 0;
+    padding-left: 6%;
+    padding-right: 6%;
   }
 
   div.creation_list{
