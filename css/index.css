@@ -302,6 +302,8 @@ div.inner{
     font-size: 6vw;
     height:15vh;
     margin-top: 10vw;
+    background-attachment:scroll;
+    /* position: fixed; */
   }
 
   img.profile{
@@ -368,5 +370,9 @@ div.inner{
 
   figcaption{
     font-size: 2.5vw;
+  }
+
+  #timeline {
+    display: none;
   }
 }
