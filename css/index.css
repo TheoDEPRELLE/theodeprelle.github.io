@@ -324,9 +324,11 @@ div.inner{
 }
 
 .tl-mobile-date{
+  -webkit-transform: translateX(-1%) translateY(-5%);
+          transform: translateX(-1%) translateY(-5%);
   position: absolute;
   padding: 20px;
-  top: 0;
+  top: -5;
   border-bottom-right-radius: 4px;
   background-color: white;
   font-size: 3vw;
