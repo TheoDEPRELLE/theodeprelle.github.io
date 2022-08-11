@@ -19,9 +19,8 @@ p{
   color:white;
 }
 
-
 @keyframes fadein {
-    0% { opacity: 0; filter : blur(70px);}
+    0% { opacity: 0; filter : blur(100px);}
     20% { opacity: 1; filter : blur(0px);}
     40%   { opacity: 1; filter : blur(0px);}
 }
@@ -58,6 +57,8 @@ div.title{
   align-items: center;
   justify-content: center;
   height:30vh;
+  margin-top: 10vh;
+  border-image:
 }
 
 t2 {
@@ -106,14 +107,16 @@ figure.creations{
 }
 
 code{
-  font-size:1.6vw;
+  font-size:2vw;
   color:black;
+  /* font-family: 'MODERN TYPEWRITER', sans-serif; */
 }
 
 div.research_text{
   margin:5vw;
-  margin-left: 0;
+  margin-left: 5%;
   margin-top: 0;
+  margin-right: 0;
   width:50%;
 }
 
@@ -138,6 +141,7 @@ div.inner{
   display: flex;
   /* margin-top: 1%; */
   margin:5vw;
+  margin-top: 2.5vw;
   background-color: white;
 }
 #timeline:hover .tl-item {
@@ -149,7 +153,7 @@ div.inner{
           transform: translate3d(0, 0, 0);
   position: relative;
   width: 25%;
-  height: 70vh;
+  height: 65vh;
   /* min-height: 600px; */
   color: white;
   overflow: hidden;
@@ -369,8 +373,9 @@ div.inner{
   }
 
   p.description{
-    /* margin:4vw; */
-    /* margin-top: 1vw; */
+    margin:4vw;
+    margin-left:10px;
+    margin-right:40px;
     font-size:3.2vw;
     line-height: 150%;
   }
