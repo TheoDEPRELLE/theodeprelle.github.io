@@ -181,10 +181,10 @@ div.inner{
   opacity: 0;
   -webkit-transform: translate3d(0, 0, 0) translateY(80%);
           transform: translate3d(0, 0, 0) translateY(80%);
-  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
-  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transition: opacity 0.25s ease, -webkit-transform 0.25s ease;
+  transition: opacity 0.25s ease, -webkit-transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, -webkit-transform 0.25s ease;
 }
 .tl-item:hover {
   width: 30% !important;
@@ -198,16 +198,16 @@ div.inner{
   -webkit-transform: translate3d(0, 0, 0) translateY(0);
           transform: translate3d(0, 0, 0) translateY(0);
   -webkit-transition: opacity .5s ease, -webkit-transform 1s ease 0.25s;
-  transition: opacity .5s ease, -webkit-transform 1s ease 0.25s;
-  transition: opacity .5s ease, transform 1s ease 0.25s;
-  transition: opacity .5s ease, transform 1s ease 0.25s, -webkit-transform 1s ease 0.25s;
+  transition: opacity .5s ease, -webkit-transform .5s ease 0.25s;
+  transition: opacity .5s ease, transform .5s ease 0.25s;
+  transition: opacity .5s ease, transform .5s ease 0.25s, -webkit-transform .5s ease 0.25s;
 }
 .tl-item:hover .tl-content {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  -webkit-transition: all 0.75s ease 0.5s;
-  transition: all 0.75s ease 0.5s;
+  -webkit-transition: all 0.5s ease 0.25s;
+  transition: all 0.5s ease 0.25s;
   color: black;
 }
 .tl-item:hover .tl-bg {
