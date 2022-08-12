@@ -71,18 +71,24 @@ t2 {
 
 div.divprofile{
   display:flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.divprofile_text{
-  margin:5vw;
-  margin-left: 0;
+  /* margin:5vw; */
+  /* margin-left: 0; */
   width:70%;"
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
 }
 
 div.divprofile_img{
   width:30%;
   margin: 5vw;
-  margin-right: 0;
+  /* margin-right: 0; */
   width: 30%;
   height: 10%;
   align-items: center;
@@ -95,10 +101,11 @@ img.profile{
 
 p.description{
   color:black;
-  margin:4vw;
+  margin-right:4vw;
+  margin-left:4vw;
   text-align:justify;
   font-size:1.7vw;
-  line-height: 150%;
+  line-height: 174%;
 }
 
 figure.creations{
@@ -109,22 +116,21 @@ figure.creations{
 code{
   font-size:2vw;
   color:black;
-  /* font-family: 'MODERN TYPEWRITER', sans-serif; */
 }
 
 div.research_text{
-  margin:5vw;
-  margin-left: 5%;
-  margin-top: 0;
-  margin-right: 0;
-  width:50%;
+  width:60%;
+  align-items: center;
+  justify-content: center;
 }
 
 div.research_link{
-  margin:3vw;
+  margin:5vw;
   margin-left:0;
-  width:50%;
+  width: : 50%;
   font-size:1.2vw;
+  align-items: center;
+  justify-content: center;
 }
 
 div.creation_list{
@@ -296,7 +302,6 @@ div.inner{
 
 .tl-mobile-desc{
   background-color: white;
-  width: 90%;
   /* margin-top: 10vh; */
   /* height: 20vh; */
   margin:3vh;
@@ -360,7 +365,9 @@ div.inner{
 
   div.divprofile_text{
     width: 100%;
+    justify-content: center;
   }
+
   div.divprofile_img{
     width: 100%;
     margin: 8vw;
@@ -368,16 +375,17 @@ div.inner{
     display: none;
   }
   div.divprofile{
-    flex-wrap: wrap;
+    display: grid;
     align-items: center;
+    justify-content: center;
   }
 
   p.description{
-    margin:4vw;
-    margin-left:10px;
-    margin-right:40px;
+    /* margin:4vw; */
+    /* margin-left:10px; */
+    /* margin-right:50px; */
     font-size:3.2vw;
-    line-height: 150%;
+    line-height: 173%;
   }
 
   img.intro{
@@ -395,13 +403,14 @@ div.inner{
   div.research_text{
     width:100%;
     font-size:3.2vw;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
+
   }
 
   div.research_link{
     width:100%;
     font-size:2.5vw;
-    margin-top:0vw;
+    margin:0;
   }
 
   figure.creations{
