@@ -184,8 +184,8 @@ div.inner{
   overflow: hidden;
   -webkit-transition: width 0.5s ease;
   transition: width 0.5s ease;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+  /* -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  /* filter: grayscale(100%); */ */
   border: 2px solid white;
 }
 .tl-item:before, .tl-item:after {
@@ -347,8 +347,8 @@ div.inner{
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 6vh;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+  /* -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  /* filter: grayscale(100%); */
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
