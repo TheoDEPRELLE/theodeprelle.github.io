@@ -55,24 +55,24 @@
 
 .menu--adsila .menu__item:nth-child(odd) .menu__item-name::before,
 .menu--adsila .menu__item:nth-child(odd) .menu__item-label::before {
-	background: #fe628e;
+	background:red;
 }
 
 .menu--adsila .menu__item:nth-child(even) .menu__item-name::before,
 .menu--adsila .menu__item:nth-child(even) .menu__item-label::before {
-	background: #6265fe;
+	background: red;
 }
 
 /* Hover */
 
 .menu--adsila .menu__item:nth-child(odd):hover,
 .menu--adsila .menu__item:nth-child(odd):focus {
-	color: #fe628e;
+	color: red;
 }
 
 .menu--adsila .menu__item:nth-child(even):hover,
 .menu--adsila .menu__item:nth-child(even):focus {
-	color: #6265fe;
+	color: red;
 }
 
 .menu--adsila .menu__item:hover .menu__item-name::before,
