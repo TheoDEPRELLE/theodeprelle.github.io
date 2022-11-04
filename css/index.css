@@ -62,18 +62,20 @@ div.title{
 
 div.part{
   backdrop-filter: invert(1);
-  border-radius: 5px;
+  /* border-radius: 5px; */
   position: relative;
   /* width: 30%; */
   display: inline-block;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   height: 35%;
+  background-size: 100%, 100%;
+
   margin-left: 4vw;
 }
 
 t2 {
   position: relative;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   top: 20%;
   left: 40px;
   font-family: 'MODERN TYPEWRITER', sans-serif;
@@ -82,8 +84,14 @@ t2 {
   /* margin:3%; */
   /* width: 50%; */
   font-size: 6vw;
-  color: white;
-  background-color: red;
+  color: black;
+  /* border: 4px solid #000000; */
+  /* border-radius: 10px; */
+  /* background-color: white; */
+  /* backdrop-filter: invert(1); */
+  background-image: url(../contents/border_5.png);
+  /* background-size: 100%; */
+  background-size: 100% 100%;;
   /* backdrop-filter: blur(1px); */
 
 }
