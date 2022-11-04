@@ -113,7 +113,7 @@ div.divprofile_text{
   width:70%;"
   display:flex;
   align-items: center;
-  justify-content: center;
+  text-align: center;
   padding: 4vw;
 }
 
@@ -138,6 +138,7 @@ p.description{
   text-align:justify;
   font-size:1.7vw;
   line-height: 174%;
+  padding-bottom: 20px;
 }
 
 figure.creations{
@@ -152,19 +153,19 @@ div.overlay {
   position: absolute;
 }
 
-code{
-  margin-top: 10px;
+t3.code{
+  font-family: 'Press Start 2P';
+  margin-top: 20px;
+  text-align: center;
+  /* margin-right: 40px; */
   padding-left: 2vw;
   padding-right: 2vw;
   padding-top: 12px;
   padding-bottom: 12px;
-  font-size:2.3vw;
-  color:black;
-  /* background-color: black; */
-  /* background-image: url(../contents/background_mail.png); */
-  background-size:100% 100%;
-  /* background-position: top, bottom; */
-  background-repeat: no-repeat;
+  width: 70%;
+  font-size:1.4vw;
+  color:white;
+  background-color: black;
 }
 
 div.research_text{
@@ -418,7 +419,7 @@ div.inner{
 
   div.divprofile_text{
     width: 100%;
-    justify-content: center;
+    justify-content: flex;
   }
 
   div.divprofile_img{
@@ -439,6 +440,17 @@ div.inner{
     /* margin-right:50px; */
     font-size:3.2vw;
     line-height: 173%;
+    padding-bottom: 20px;
+  }
+
+  t3.code{
+    font-family: 'Press Start 2P';
+    /* margin:4vw; */
+    /* margin-left:10px; */
+    /* margin-right:50px; */
+    font-size:3.2vw;
+    /* line-height: 173%; */
+    /* padding-bottom: 20px; */
   }
 
   img.intro{
