@@ -300,6 +300,7 @@ div.inner{
 }
 
 .tl-year {
+  visibility: hidden;
   position: absolute;
   top: 5%;
   left: 10%;
@@ -327,6 +328,7 @@ div.inner{
   text-align: center;
   color: black;
   padding-left: 50px;
+  visibility: hidden;
 }
 
 .tl-bg {
@@ -397,6 +399,7 @@ div.inner{
   background-color: white;
   font-size: 3vw;
   color: black;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 1024px) {
