@@ -24,7 +24,9 @@
 
 let grid_size = 5
 
-for (var grid_id=0; grid_id < 4; grid_id++) {
+for (var grid_id=0; grid_id < 3; grid_id++) {
+
+  document.write("<div class=\"container_title\"><div>B</div><div>I</div><div>N</div><div>G</div><div>O</div></div>")
 
   document.write("<div class=\"container\">");
 
@@ -32,7 +34,7 @@ for (var grid_id=0; grid_id < 4; grid_id++) {
 
   while (grid_val.size < grid_size ** 2) {
 
-      grid_val.add(Math.floor(Math.random() * 99) + 1);
+      grid_val.add(Math.floor(Math.random() * 90) + 1);
   }
   grid_val = [...grid_val];
 
