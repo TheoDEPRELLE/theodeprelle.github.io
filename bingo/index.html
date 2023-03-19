@@ -40,6 +40,75 @@ for (var grid_id=0; grid_id < 3; grid_id++) {
   }
   grid_val = [...grid_val];
 
+  function checkClickFunc(element){
+    let grid = Math.floor(element.id / grid_size ** 2)
+    let row = (element.id - grid * grid_size ** 2) % grid_size
+    let col = (element.id - grid * grid_size ** 2 - row) / grid_size
+
+    console.log(element.id, grid, row, col)
+    let row_boolean = true
+    let col_boolean = true
+    let diag_1_boolean = true
+    let diag_2_boolean = true
+
+    for(var i=0; i<grid_size; i++) {
+      row_boolean = row_boolean & document.getElementById(grid * grid_size ** 2 + col*grid_size + i).checked
+      col_boolean = col_boolean & document.getElementById(grid * grid_size ** 2 + i*grid_size + row).checked
+    }
+
+    if(row == col){
+      for(var i=0; i<grid_size; i++) {
+        diag_1_boolean = diag_1_boolean & document.getElementById(grid * grid_size ** 2 + i + i * grid_size).checked
+      }
+    }else{
+      diag_1_boolean = false
+    }
+    if(col*grid_size + row == (col+1)*grid_size - col - 1){
+      for(var i=1; i<=grid_size; i++) {
+        diag_2_boolean = diag_2_boolean & document.getElementById(grid * grid_size ** 2 + i*grid_size - i).checked
+      }
+    }else{
+      diag_2_boolean = false
+    }
+
+    if (row_boolean){
+      for(var i=0; i<grid_size; i++) {
+        cell = document.getElementById("l_"+(grid * grid_size ** 2 + col*grid_size + i).toString())
+        cell.setAttribute("data-tg-on", "★")
+        // cell = document.getElementById((grid * grid_size ** 2 + col*grid_size + i).toString())
+        // cell.disabled=true;
+      }
+    }
+
+    if (col_boolean){
+      for(var i=0; i<grid_size; i++) {
+        cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size + row).toString())
+        cell.setAttribute("data-tg-on", "★")
+        // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size + row).toString())
+        // cell.disabled=true;
+      }
+    }
+
+    if (diag_1_boolean){
+      for(var i=0; i<grid_size; i++) {
+        cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size + i).toString())
+        cell.setAttribute("data-tg-on", "★")
+        // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size + i).toString())
+        // cell.disabled=true;
+      }
+    }
+
+    if (diag_2_boolean){
+      for(var i=1; i<=grid_size; i++) {
+        cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size - i).toString())
+        cell.setAttribute("data-tg-on", "★")
+        // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size - i).toString())
+        // cell.disabled=true;
+      }
+    }
+
+  }
+
 
   for (var a=0; a < grid_size; a++) {
 
@@ -50,8 +119,8 @@ for (var grid_id=0; grid_id < 3; grid_id++) {
       let val = grid_val[a*grid_size + b]
       document.write("<div>");
       document.write("<li class=\"tg-list-item\">");
-      document.write("<input class=\"tgl tgl-flip\" id=\""+id+"\" type=\"checkbox\"/>");
-      document.write("<label class=\"tgl-btn\" data-tg-off=\""+val+"\" data-tg-on=\""+val+"\" for=\""+id+"\"></label>");
+      document.write("<input class=\"tgl tgl-flip\" id=\""+id+"\" type=\"checkbox\" onclick=\"checkClickFunc(this)\"/>");
+      document.write("<label class=\"tgl-btn\" data-tg-off=\""+val+"\" data-tg-on=\""+val+"\" id=\"l_"+id+"\"for=\""+id+"\"></label>");
       document.write("</li>");
       // document.write("test");
       document.write("</div>");
