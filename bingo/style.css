@@ -27,7 +27,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   /* margin-bottom: 50px; */
-  text-shadow: #EF5B5B 2px 5px;
+  text-shadow: #EF5B5B .2vw .5vw;
   /* background-color: #EF5B5B; */
 }
 
