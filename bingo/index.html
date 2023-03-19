@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS Toggle Switch button</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- <div class="container">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+</body>
+</html> -->
+
+<script language="javascript" type="text/javascript">
+
+let grid_size = 5
+
+for (var grid_id=0; grid_id < 4; grid_id++) {
+
+  document.write("<div class=\"container\">");
+
+  let grid_val = new Set;
+
+  while (grid_val.size < grid_size ** 2) {
+
+      grid_val.add(Math.floor(Math.random() * 99) + 1);
+  }
+  grid_val = [...grid_val];
+
+
+  for (var a=0; a < grid_size; a++) {
+
+
+    for(var b=0; b<grid_size; b++) {
+
+      let id = a*grid_size + b + grid_id * grid_size ** 2
+      let val = grid_val[a*grid_size + b]
+      document.write("<div>");
+      document.write("<li class=\"tg-list-item\">");
+      document.write("<input class=\"tgl tgl-flip\" id=\""+id+"\" type=\"checkbox\"/>");
+      document.write("<label class=\"tgl-btn\" data-tg-off=\""+val+"\" data-tg-on=\""+val+"\" for=\""+id+"\"></label>");
+      document.write("</li>");
+      // document.write("test");
+      document.write("</div>");
+    }
+  }
+  document.write("</div>");
+}
+</script>
+</body>
