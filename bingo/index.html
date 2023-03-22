@@ -12,7 +12,11 @@
 <script language="javascript" type="text/javascript">
 
 function go() {
-  window.location = "https://theodeprelle.github.io/bingo/?username="+document.getElementById("name").value;
+  var pseudo = document.getElementById("name").value
+  if(pseudo == ""){
+    pseudo = Math.ceil(Math.random() * 100000 % 99999).toString()
+  }
+  window.location = "https://theodeprelle.github.io/bingo/?username="+pseudo;
 }
 
 function cyrb128(str) {
