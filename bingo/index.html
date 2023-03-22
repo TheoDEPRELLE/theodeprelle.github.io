@@ -8,126 +8,167 @@
 
 </head>
 <body>
-<!-- <div class="container">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-</body>
-</html> -->
 
 <script language="javascript" type="text/javascript">
 
-let grid_size = 5
+function go() {
+  window.location = "file:///Users/deprelle/Desktop/theodeprelle.github.io/bingo/index.html?username="+document.getElementById("name").value;
+}
 
-for (var grid_id=0; grid_id < 3; grid_id++) {
+function cyrb128(str) {
+    let h1 = 1779033703, h2 = 3144134277,
+        h3 = 1013904242, h4 = 2773480762;
+    for (let i = 0, k; i < str.length; i++) {
+        k = str.charCodeAt(i);
+        h1 = h2 ^ Math.imul(h1 ^ k, 597399067);
+        h2 = h3 ^ Math.imul(h2 ^ k, 2869860233);
+        h3 = h4 ^ Math.imul(h3 ^ k, 951274213);
+        h4 = h1 ^ Math.imul(h4 ^ k, 2716044179);
+    }
+    h1 = Math.imul(h3 ^ (h1 >>> 18), 597399067);
+    h2 = Math.imul(h4 ^ (h2 >>> 22), 2869860233);
+    h3 = Math.imul(h1 ^ (h3 >>> 17), 951274213);
+    h4 = Math.imul(h2 ^ (h4 >>> 19), 2716044179);
+    return [(h1^h2^h3^h4)>>>0, (h2^h1)>>>0, (h3^h1)>>>0, (h4^h1)>>>0];
+}
 
+function sfc32(a, b, c, d) {
+    return function() {
+      a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0;
+      var t = (a + b) | 0;
+      a = b ^ b >>> 9;
+      b = c + (c << 3) | 0;
+      c = (c << 21 | c >>> 11);
+      d = d + 1 | 0;
+      t = t + d | 0;
+      c = c + t | 0;
+      return (t >>> 0) / 4294967296;
+    }
+}
+
+const myUrl = new URL(window.location.toLocaleString());
+const name = myUrl.searchParams.get('username');
+
+if (name == null)  {
+  console.log('toto')
   document.write("<div class=\"grid\">");
 
   document.write("<div class=\"container_title\"><div>B</div><div>I</div><div>N</div><div>G</div><div>O</div></div>")
 
-  document.write("<div class=\"container\">");
+  document.write("<form><input type=\"text\" placeholder=\"ton pseudo\" id=\"name\" name=\"name\" required><button type=\"button\" onclick=\"go()\">Go</button></form>")
+}
+else {
 
-  let grid_val = new Set;
+  var seed = cyrb128(name);
+  var rand = sfc32(seed[0], seed[1], seed[2], seed[3]);
 
-  while (grid_val.size < grid_size ** 2) {
+  let grid_size = 5
 
-      grid_val.add(Math.floor(Math.random() * 90) + 1);
+  for (var grid_id=0; grid_id < 3; grid_id++) {
+
+    document.write("<div class=\"grid\">");
+
+    document.write("<div class=\"container_title\"><div>B</div><div>I</div><div>N</div><div>G</div><div>O</div></div>")
+
+    document.write("<div class=\"container\">");
+
+    let grid_val = new Set;
+
+    while (grid_val.size < grid_size ** 2) {
+
+        grid_val.add(1 + Math.ceil((rand() * 90)));
+    }
+    grid_val = [...grid_val];
+
+    function checkClickFunc(element){
+      let grid = Math.floor(element.id / grid_size ** 2)
+      let row = (element.id - grid * grid_size ** 2) % grid_size
+      let col = (element.id - grid * grid_size ** 2 - row) / grid_size
+
+      console.log(element.id, grid, row, col)
+      let row_boolean = true
+      let col_boolean = true
+      let diag_1_boolean = true
+      let diag_2_boolean = true
+
+      for(var i=0; i<grid_size; i++) {
+        row_boolean = row_boolean & document.getElementById(grid * grid_size ** 2 + col*grid_size + i).checked
+        col_boolean = col_boolean & document.getElementById(grid * grid_size ** 2 + i*grid_size + row).checked
+      }
+
+      if(row == col){
+        for(var i=0; i<grid_size; i++) {
+          diag_1_boolean = diag_1_boolean & document.getElementById(grid * grid_size ** 2 + i + i * grid_size).checked
+        }
+      }else{
+        diag_1_boolean = false
+      }
+      if(col*grid_size + row == (col+1)*grid_size - col - 1){
+        for(var i=1; i<=grid_size; i++) {
+          diag_2_boolean = diag_2_boolean & document.getElementById(grid * grid_size ** 2 + i*grid_size - i).checked
+        }
+      }else{
+        diag_2_boolean = false
+      }
+
+      if (row_boolean){
+        for(var i=0; i<grid_size; i++) {
+          cell = document.getElementById("l_"+(grid * grid_size ** 2 + col*grid_size + i).toString())
+          cell.setAttribute("data-tg-on", "★")
+          // cell = document.getElementById((grid * grid_size ** 2 + col*grid_size + i).toString())
+          // cell.disabled=true;
+        }
+      }
+
+      if (col_boolean){
+        for(var i=0; i<grid_size; i++) {
+          cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size + row).toString())
+          cell.setAttribute("data-tg-on", "★")
+          // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size + row).toString())
+          // cell.disabled=true;
+        }
+      }
+
+      if (diag_1_boolean){
+        for(var i=0; i<grid_size; i++) {
+          cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size + i).toString())
+          cell.setAttribute("data-tg-on", "★")
+          // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size + i).toString())
+          // cell.disabled=true;
+        }
+      }
+
+      if (diag_2_boolean){
+        for(var i=1; i<=grid_size; i++) {
+          cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size - i).toString())
+          cell.setAttribute("data-tg-on", "★")
+          // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size - i).toString())
+          // cell.disabled=true;
+        }
+      }
+
+    }
+
+
+    for (var a=0; a < grid_size; a++) {
+
+
+      for(var b=0; b<grid_size; b++) {
+
+        let id = a*grid_size + b + grid_id * grid_size ** 2
+        let val = grid_val[a*grid_size + b]
+        document.write("<div>");
+        document.write("<li class=\"tg-list-item\">");
+        document.write("<input class=\"tgl tgl-flip\" id=\""+id+"\" type=\"checkbox\" onclick=\"checkClickFunc(this)\"/>");
+        document.write("<label class=\"tgl-btn\" data-tg-off=\""+val+"\" data-tg-on=\""+val+"\" id=\"l_"+id+"\"for=\""+id+"\"></label>");
+        document.write("</li>");
+        // document.write("test");
+        document.write("</div>");
+      }
+    }
+    document.write("</div>");
+    document.write("</div>");
   }
-  grid_val = [...grid_val];
-
-  function checkClickFunc(element){
-    let grid = Math.floor(element.id / grid_size ** 2)
-    let row = (element.id - grid * grid_size ** 2) % grid_size
-    let col = (element.id - grid * grid_size ** 2 - row) / grid_size
-
-    console.log(element.id, grid, row, col)
-    let row_boolean = true
-    let col_boolean = true
-    let diag_1_boolean = true
-    let diag_2_boolean = true
-
-    for(var i=0; i<grid_size; i++) {
-      row_boolean = row_boolean & document.getElementById(grid * grid_size ** 2 + col*grid_size + i).checked
-      col_boolean = col_boolean & document.getElementById(grid * grid_size ** 2 + i*grid_size + row).checked
-    }
-
-    if(row == col){
-      for(var i=0; i<grid_size; i++) {
-        diag_1_boolean = diag_1_boolean & document.getElementById(grid * grid_size ** 2 + i + i * grid_size).checked
-      }
-    }else{
-      diag_1_boolean = false
-    }
-    if(col*grid_size + row == (col+1)*grid_size - col - 1){
-      for(var i=1; i<=grid_size; i++) {
-        diag_2_boolean = diag_2_boolean & document.getElementById(grid * grid_size ** 2 + i*grid_size - i).checked
-      }
-    }else{
-      diag_2_boolean = false
-    }
-
-    if (row_boolean){
-      for(var i=0; i<grid_size; i++) {
-        cell = document.getElementById("l_"+(grid * grid_size ** 2 + col*grid_size + i).toString())
-        cell.setAttribute("data-tg-on", "★")
-        // cell = document.getElementById((grid * grid_size ** 2 + col*grid_size + i).toString())
-        // cell.disabled=true;
-      }
-    }
-
-    if (col_boolean){
-      for(var i=0; i<grid_size; i++) {
-        cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size + row).toString())
-        cell.setAttribute("data-tg-on", "★")
-        // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size + row).toString())
-        // cell.disabled=true;
-      }
-    }
-
-    if (diag_1_boolean){
-      for(var i=0; i<grid_size; i++) {
-        cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size + i).toString())
-        cell.setAttribute("data-tg-on", "★")
-        // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size + i).toString())
-        // cell.disabled=true;
-      }
-    }
-
-    if (diag_2_boolean){
-      for(var i=1; i<=grid_size; i++) {
-        cell = document.getElementById("l_"+(grid * grid_size ** 2 + i*grid_size - i).toString())
-        cell.setAttribute("data-tg-on", "★")
-        // cell = document.getElementById((grid * grid_size ** 2 + i*grid_size - i).toString())
-        // cell.disabled=true;
-      }
-    }
-
-  }
-
-
-  for (var a=0; a < grid_size; a++) {
-
-
-    for(var b=0; b<grid_size; b++) {
-
-      let id = a*grid_size + b + grid_id * grid_size ** 2
-      let val = grid_val[a*grid_size + b]
-      document.write("<div>");
-      document.write("<li class=\"tg-list-item\">");
-      document.write("<input class=\"tgl tgl-flip\" id=\""+id+"\" type=\"checkbox\" onclick=\"checkClickFunc(this)\"/>");
-      document.write("<label class=\"tgl-btn\" data-tg-off=\""+val+"\" data-tg-on=\""+val+"\" id=\"l_"+id+"\"for=\""+id+"\"></label>");
-      document.write("</li>");
-      // document.write("test");
-      document.write("</div>");
-    }
-  }
-  document.write("</div>");
-  document.write("</div>");
 }
 </script>
 </body>
