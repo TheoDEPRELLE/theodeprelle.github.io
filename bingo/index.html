@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Bingo</title>
+  <title>CodePen - CSS Toggle Switch button</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./style.css">
 
@@ -16,7 +16,6 @@ function go() {
   if(pseudo == ""){
     pseudo = Math.ceil(Math.random() * 100000 % 99999).toString()
   }
-  console.l
   window.location = "https://theodeprelle.github.io/bingo/?username="+pseudo;
 }
 
@@ -83,12 +82,10 @@ else {
     grid_val = [...grid_val];
 
     function checkClickFunc(element){
-
       let grid = Math.floor(element.id / 5 ** 2)
       let row = (element.id - grid * 5 ** 2) % 5
       let col = (element.id - grid * 5 ** 2 - row) / 5
 
-      console.log(element.id, grid, row, col)
       let row_boolean = true
       let col_boolean = true
       let diag_1_boolean = true
