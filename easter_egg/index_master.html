@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS Toggle Switch button</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div class="grid">
+<div class="container_title">
+  <div>B</div>
+  <div>I</div>
+  <div>N</div>
+  <div>G</div>
+  <div>O</div>
+</div>
+<div class="container_master">
+<script language="javascript" type="text/javascript">
+let grid_val = new Set;
+
+for (var a=1; a <= 90; a++) {
+    let id = a
+    document.write("<div>");
+    document.write("<li class=\"tg-list-item\">");
+    document.write("<input class=\"tgl tgl-flip\" id=\""+id+"\" type=\"checkbox\"/>");
+    document.write("<label class=\"tgl-btn\" data-tg-off=\""+id+"\" data-tg-on=\""+id+"\" for=\""+id+"\"></label>");
+    document.write("</li>");
+    document.write("</div>");
+}
+var numbers = [...Array(91).keys()];
+</script>
+</div>
+</body>
