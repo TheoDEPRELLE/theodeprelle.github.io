@@ -1,229 +1,1999 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BXMVZWSZ6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W40K list</title>
+    <link rel="icon" href="path-to-favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+    body {
+        font-family: "Cinzel", serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
+        background-color: #000; /* Darker background for better contrast */
+        font-size: 16px;
+    }
 
-  gtag('config', 'G-8BXMVZWSZ6');
-</script>
+    strong{
+      color: #83f52c;
+    }
 
-<!-- End Google Analytics -->
-<link href="css/font.css" rel="stylesheet">
-<link rel="stylesheet" href="css/misc.css">
-<link rel="stylesheet" type="text/css" href="css/demo.css" />
-<link rel="stylesheet" type="text/css" href="css/style-adsila.css" />
-<link rel="stylesheet" href="css/index.css">
+    .hidden-div {
+      display: none;
+    }
 
-<link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+    .item {
+      width: calc(100% - 20px); /* Adjusted width to account for margin */
+      color: white;
+      padding: 50px 0px; /* Reduced padding for a cleaner look */
+      cursor: pointer;
+      border-bottom: 1px solid #000; /* Darker border for contrast */
+      text-align: center;
+      background-size: cover;
+      font-size: 8px;
+      background-position: center;
+      position: relative;
+      transition: background-color 0.3s; /* Smooth background transition */
+      margin: 10px; /* Added margin for separation */
+      border-radius: 8px; /* Rounded corners */
+      overflow: hidden; /* Ensures background color fits rounded corners */
+  }
 
-<!-- <link rel="icon" type="image/png" href="./contents/theo2.png"> -->
-<!-- <link rel="icon" type="image/png" href="http://example.com/myicon.png"> -->
-<title>Theo Deprelle home page</title>
-<link rel = "icon" href = "./contents/theo_logo.ico"  type = "image/x-icon">
+
+    .item:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+    }
+
+    .item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+    }
+
+    .item h1 {
+        margin: 0;
+        border-radius: 8px; /* Rounded corners */
+        padding: 0 4px 0 4px;
+        position: absolute; /* Change to absolute positioning */
+        bottom: 20px; /* Distance from the bottom */
+        left: 10px; /* Distance from the left */
+        z-index: 1; /* Ensure it's above the overlay */
+        font-size: 15px; /* Maintain larger font for readability */
+        background-color: rgba(0, 0, 0, 0.75);
+
+    }
+
+
+    .description {
+        max-height: 0;
+        overflow: hidden;
+        background-color: #000; /* White background for contrast */
+        color: #333;
+        padding: 0 15px;
+        border-top: 1px solid #000; /* Clear border to separate from item */
+        transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .item.active + .description {
+        max-height: 500px; /* Increased height for more content */
+        padding: 15px 15px 20px; /* Adjusted padding for better spacing */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        box-shadow: 0 2px 10px rgba(0, 25, 0, 25); /* Subtle shadow for depth */
+        font-size: 20px;
+    }
+
+    th, td {
+        border: 1px solid grey;
+        padding: 10px; /* Increased padding for better spacing */
+        text-align: center;
+    }
+
+    th {
+        background-color: black; /* Retained original color for headers */
+        color: white;
+    }
+
+    td {
+        background-color: #000; /* Light background for table cells */
+        color: #83f52c;
+    }
+
+    /* Background images */
+
+            .item.chronomancer {
+              background-image: url('./contents/Chronomancer-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -50px right;
+            }
+
+            .item.lhd {
+              background-image: url('./contents/Lokhust-Heavy-Destroyer-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -20px left;
+            }
+
+            .item.sl {
+              background-image: url('./contents/Skorpekh-Lord-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -20px left 130px;
+            }
+
+            .item.sd {
+              background-image: url('./contents/Skorpekh-Destroyer-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -20px left 40px;
+            }
+
+            .item.monolith {
+              background-image: url('./contents/Necron-Monolith-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -100px left 60px;
+            }
+
+            .item.plasmancer {
+              background-image: url('./contents/Plasmancer-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -40px left 0px;
+            }
+
+            .item.immo {
+              background-image: url('./contents/Sautekh-Immortal-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -22px left;
+            }
+
+            .item.tsk {
+              background-image: url('./contents/Szarekh-the-Silent-King-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -30px left 50px;
+            }
+
+            .item.nightbringer {
+              background-image: url('./contents/Nighbringer-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -30px left;
+            }
+
+            .item.deathmarks {
+              background-image: url('./contents/c8d12fb833debd515276417b2122025d.jpg');
+              background-position: top -110px left;
+            }
+
+            .item.void {
+              background-image: url('./contents/Shard-of-the-Void-Dragon-Warhammer-40000-MtG-Art-1024x576.jpg');
+              background-position: top 0px left;
+            }
+
+            .item.trans {
+              background-image: url('./contents/Caged-Sun.jpg');
+              background-position: top -10px left;
+            }
+
+            .item.flayed {
+              background-image: url('./contents/Flayed-One-Warhammer-40000-MtG-Art.jpg');
+              background-position: top -50px left;
+            }
+
+            .item.hexmark {
+              background-image: url('./contents/necron_destroyer_fanart_by_brushray_desnh5q-fullview.jpg');
+              background-position: top -60px;
+            }
+
+            .item.ll {
+              background-image: url('./contents/Necron-Overlord-Warhammer-40000-MtG-Art-1024x752.jpg');
+              background-position: top -8px left 90px;
+            }
+
+            .item.ld {
+              background-image: url('./contents/Destroyer.jpg');
+              background-position: top -100px left;
+            }
+
+            .item.techno {
+              background-image: url('./contents/Technomancer-Warhammer-40000-MtG-Art-1536x1128.jpg');
+              background-position: top -10px left;
+            }
+            .item.dda {
+              background-image: url('./contents/alexey-kruglov-422772-ghostark-final.jpg');
+              background-position: top -45px left;
+            }
+            .item.swarm {
+              background-image: url('./contents/Canoptek-Scarab-Swarm-Warhammer-40000-MtG-Art-1024x752.jpg');
+              background-position: top -80px left;
+            }
+            .item.spyder {
+              background-image: url('./contents/Canoptek-Spyder-Warhammer-40000-MtG-Art-1024x752.jpg');
+              background-position: top -300px left;
+            }
+            .item.wraith {
+              background-image: url('./contents/Canoptek-Wraith-Warhammer-40000-MtG-Art-1536x1128.jpg');
+              background-position: top -40px left;
+            }
+
+    </style>
 </head>
 <body>
-    <div class="outer" style="margin-top:0;">
-        <img class="intro" src="./contents/intro_21.jpg"/></br>
-        <div style="text-align:center;transform:rotate(0deg);">
-          <t4 style="font-size:3vw; color:white; background-color:red; padding:10px;">Welcome to my home page </t2>
-        </div>
+
+    <div class="item chronomancer hidden-div">
+        <h1>Chronomancer</h1>
     </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>5"</td>
+            <td>4</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>4</td>
+            <td>6+</td>
+            <td>1</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>BLAST</td>
+        <td>18"</td>
+        <td>D6</td>
+        <td>4+</td>
+        <td>5</td>
+        <td>-1</td>
+        <td>1</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>3</td>
+            <td>4+</td>
+            <td>5</td>
+            <td>-1</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Leader</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Timesplinter Mantle</strong> - While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll. <br><br>
+            <strong>Chronometron</strong> - In your Shooting phase, after this model’s unit has shot, if it is not within Engagement R of any enemy units, that unit can make a Normal move of up to 5" as if it were your Movement phase. If it does, until the end of the turn, that unit is not eligible to declare a charge.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, CHARACTER, CRYPTEK, CHRONOMANCER
+</strong></p>
+    </div>
+
+    <div class="item plasmancer hidden-div">
+        <h1>Plasmancer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>5"</td>
+            <td>4</td>
+            <td>4+</td>
+            <td>4</td>
+            <td>6+</td>
+            <td>1</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>18"</td>
+        <td>3</td>
+        <td>4+</td>
+        <td>7</td>
+        <td>-3</td>
+        <td>2</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>4+</td>
+            <td>7</td>
+            <td>-3</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Leader</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Harbinger of Destruction</strong> - While this model is leading a unit, each time a model in that unit makes a ranged attack, a successful unmodifed Hit roll of 5+ scores a Critical Hit. <br><br>
+            <strong>Living Lightning</strong> - In your Shooting phase, select one enemy unit within 18" of and visible to this model and roll four D6: for each 4+, that enemy unit suffers 1 mortal wound.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, CHARACTER, CRYPTEK, PLASMANCER
+</strong></p>
+    </div>
+
+    <div class="item techno hidden-div">
+        <h1>Technomancer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>10"</td>
+            <td>4</td>
+            <td>4+</td>
+            <td>4</td>
+            <td>6</td>
+            <td>1</td>
+        </tr>
+      </table>
+      <table>
+          <tr>
+            <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+              <th>R</th>
+              <th>A</th>
+              <th>BS</th>
+              <th>S</th>
+              <th>AP</th>
+              <th>D</th>
+          </tr>
+          <tr>
+              <td></td>
+              <td>10"</td>
+              <td>3</td>
+              <td>4+</td>
+              <td>5</td>
+              <td>-2</td>
+              <td>1</td>
+          </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>4+</td>
+            <td>5</td>
+            <td>-2</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">CORE - <strong>Leader</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Rites of Reanimation</strong> - While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability.
+
+            <br><br>
+            <strong>Technomancer</strong> - At the end of your Movement phase, you can select one friendly NECRONS model within 6" of the bearer. That model regains up to D3 lost wounds. Each model can only be selected for this ability once per turn.
+          </td>
+      </tr>
+  </table>
+  <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, CHARACTER, CRYPTEK, FLY, TECHNOMANCER</strong></p>
+    </div>
+
+    <div class="item void">
+        <h1>Void Dragon</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>6"</td>
+            <td>11</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>12</td>
+            <td>6+</td>
+            <td>4</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>Veh2</td>
+        <td>12"</td>
+        <td>1</td>
+        <td>2+</td>
+        <td>4</td>
+        <td>-3</td>
+        <td>D6+2</td>
+    </tr>
+    <tr>
+        <td>Blst<br>Sus2</td>
+        <td>18"</td>
+        <td>D6+3</td>
+        <td>2+</td>
+        <td>7</td>
+        <td>-1</td>
+        <td>2</td>
+    </tr>
+
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>Veh2</td>
+            <td>5</td>
+            <td>2+</td>
+            <td>12</td>
+            <td>-3</td>
+            <td>D6+2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>10</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Extra</td>
+            <td>6</td>
+            <td>2+</td>
+            <td>6</td>
+            <td>-1</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Deadly Demise D6, Feel No Pain 5+</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Matter Absorption</strong> - At the start of your Shooting phase, select one enemy VEHICLE unit within 12" of this model and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds and this model regains up to that many lost wounds.<br><br>
+            <strong>Necrodermis</strong> - Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>MONSTER, CHARACTER, EPIC HERO, FLY, C’TAN SHARD OF THE VOID DRAGON</strong></p>
+    </div>
+
+    <div class="item nightbringer">
+        <h1>Nightbringer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>6"</td>
+            <td>11</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>12</td>
+            <td>6+</td>
+            <td>4</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>18"</td>
+        <td>D3</td>
+        <td>2+</td>
+        <td>12</td>
+        <td>-2</td>
+        <td>D6+3</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>DEV</td>
+            <td>6</td>
+            <td>2+</td>
+            <td>14</td>
+            <td>-4</td>
+            <td>D6+2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>14</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-2</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Deadly Demise D6, Feel No Pain 5+</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Drain Life</strong> - At the end of the Fight phase, roll one D6 for each enemy unit within 6" of this model: on a 4+, that enemy unit suffers D3 mortal wounds.<br><br>
+            <strong>Necrodermis</strong> - Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>MONSTER, CHARACTER, EPIC HERO, FLY, C’TAN SHARD OF THE NIGHTBRINGER</strong></p>
+    </div>
+
+    <div class="item trans">
+        <h1>Transcendent</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>6"</td>
+            <td>11</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>12</td>
+            <td>6+</td>
+            <td>4</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>Aslt<br>Sus1</td>
+        <td>12"</td>
+        <td>6</td>
+        <td>2+</td>
+        <td>8</td>
+        <td>-2</td>
+        <td>D3</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>Sus1</td>
+            <td>8</td>
+            <td>2+</td>
+            <td>9</td>
+            <td>-3</td>
+            <td>D6</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>14</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-2</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Deadly Demise D6, Feel No Pain 5+</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Transdimensional Displacement</strong> - Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9" horizontally away from all enemy models.<br><br>
+            <strong>Necrodermis</strong> - Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>MONSTER, CHARACTER, EPIC HERO, FLY, TRANCENDENT C’TAN</strong></p>
+    </div>
+
+    <div class="item flayed hidden-div">
+      <h1>Flayed ones</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>5"</td>
+            <td>4</td>
+            <td>4+</td>
+            <td>1</td>
+            <td>7+</td>
+            <td>1</td>
+        </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>SUS1,<br>TWL</td>
+            <td>4</td>
+            <td>3+</td>
+            <td>4</td>
+            <td>-1</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Infiltrators, Stealth</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Flesh Hunger</strong> - Each time a model in this unit makes a melee attack, if the target of that attack is Below Half-strength, a successful Hit roll scores a Critical Hit.</td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, FLAYED ONES</strong></p>
+    </div>
+
+    <div class="item hexmark">
+        <h1>Hexmark Destroyer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>8"</td>
+            <td>5</td>
+            <td>3+</td>
+            <td>5</td>
+            <td>6+</td>
+            <td>1</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>PSTL,<br>IGNCOV</td>
+        <td>18"</td>
+        <td>6</td>
+        <td>2+</td>
+        <td>6</td>
+        <td>-2</td>
+        <td>1</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>4</td>
+            <td>3+</td>
+            <td>5</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Deep Strike, Lone Operative</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Inescapable Death</strong> - Once per turn, one unit from your army with this ability can be targeted with the Fire Overwatch Stratagem for 0CP, even if you have already used that Stratagem on a different unit this phase. In addition, each time you target this unit with the Fire Overwatch Stratagem, while resolving that Stratagem, hits are scored on unmodified Hit rolls of 2+.<br> <br>
+          <strong>Multi-threat Eliminator</strong> - Once per turn, in your opponent’s Shooting phase, when an enemy unit makes a ranged attack that targets a friendly NECRONS unit within 3" of a model with this ability, after that enemy unit has shot, one model with this ability that is within 3" of that target can shoot as if it were your Shooting phase, but it must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, CHARACTER, DESTROYER CULT, HEXMARK DESTROYER</strong></p>
+    </div>
+
+    <div class="item immo hidden-div">
+        <h1>Immortals</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>5"</td>
+            <td>5</td>
+            <td>3+</td>
+            <td>1</td>
+            <td>7+</td>
+            <td>2</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>SUS2,<br>ASLT</td>
+        <td>24"</td>
+        <td>2</td>
+        <td>3+</td>
+        <td>5</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>3+</td>
+            <td>4</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>implacable Eradication</strong> - Each time a model in this unit makes an attack, re-roll a Wound roll of 1. If the target of that attack is an enemy unit within R of an objective marker, you can re-roll the Wound roll instead.</td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, BATTLELINE, IMMORTALS</strong></p>
+    </div>
+
+    <div class="item deathmarks">
+        <h1>Deathmarks</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>5"</td>
+            <td>5</td>
+            <td>3+</td>
+            <td>1</td>
+            <td>7+</td>
+            <td>1</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>Heavy<br>Pre</td>
+        <td>36"</td>
+        <td>1</td>
+        <td>3+</td>
+        <td>5</td>
+        <td>-2</td>
+        <td>2</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>3+</td>
+            <td>4</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Deep strike</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Hyperspace Hunters</strong> - Once per turn, in the Reinforcements step of your opponent’s Movement phase, when an enemy unit is set up on the battlefield from Reserves within 18" of and visible to this unit, this unit can shoot as if it were your Shooting phase, but must only target that enemy unit when doing so, and can only do so if that enemy unit is an eligible target. <br><br>
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, DEATHMARKS</strong></p>
+    </div>
+
+    <div class="item ld">
+        <h1>Lokhust Destroyer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>8"</td>
+            <td>6</td>
+            <td>3+</td>
+            <td>3</td>
+            <td>7+</td>
+            <td>2</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>LETH</td>
+        <td>24"</td>
+        <td>3</td>
+        <td>3+</td>
+        <td>5</td>
+        <td>-2</td>
+        <td>2</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>3+</td>
+            <td>4</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Hard-wired for Destruction</strong> - Each time a model in this unit makes a ranged attack that targets the closest eligible enemy unit, re-roll a Hit roll of 1. If the target of that attack is within R of an objective marker your opponent controls, you can re-roll the Hit roll instead.</td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>MOUNTED, FLY, DESTROYER CULT, LOKHUST DESTROYERS</strong></p>
+    </div>
+
+    <div class="item lhd hidden-div">
+        <h1>Lokhust Heavy Destroyer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>8"</td>
+            <td>6</td>
+            <td>3+</td>
+            <td>4</td>
+            <td>7+</td>
+            <td>2</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td style="font-size:15px;">HEAVY,<br>RF6,<br>SUS1</td>
+        <td>36"</td>
+        <td>6</td>
+        <td>3+</td>
+        <td>6</td>
+        <td>-1</td>
+        <td>1</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>3+</td>
+            <td>4</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Optimised for Slaughter</strong> - Each time a model in this unit makes an attack with an enmitic exterminator that targets a unit (excluding MONSTERS and VEHICLES], re-roll a Wound roll of 1. Each time a model in this unit makes an attack with a gauss destructor that targets a MONSTER or VEHICLE, re-roll a Wound roll of 1.</td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>MOUNTED, FLY, DESTROYER CULT, LOKHUST HEAVY DESTROYERS</strong></p>
+    </div>
+
+    <div class="item ll hidden-div">
+        <h1>Lokhust Lord</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>8"</td>
+            <td>6</td>
+            <td>3+</td>
+            <td>4+</td>
+            <td>6</td>
+            <td>6+</td>
+            <td>2</td>
+        </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>DEV</td>
+            <td>4</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-3</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Leader</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Destroyer Cult</strong> - While this model is leading a unit, each time a model in that unit makes a ranged attack, a successful unmodifed Hit roll of 5+ scores a Critical Hit.
+          <br><br>
+          <strong>Driven by Hatred </strong> - Each time this model makes an attack that targets an enemy unit that is Below Half-strength, you can re-roll the Hit roll and you can re-roll the Wound roll.</td>
+      </tr>
+  </table>
+  <table>
+      <tr>
+      <th>WARGEAR ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Resurrection Orb</strong> - Once per battle, while the bearer is leading a unit, at the end of any phase, it can resurrect that unit if it is on the battlefield. When you do, that unit’s Reanimation Protocols are activated, reanimating D6 wounds rather than D3 when doing so. You cannot resurrect more than one unit per turn. </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong></strong></p>
+    </div>
+
+    <div class="item monolith hidden-div">
+        <h1>Monolith</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>8"</td>
+            <td>13</td>
+            <td>2+</td>
+            <td>22</td>
+            <td>7+</td>
+            <td>8</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>SUSd3</td>
+        <td>24"</td>
+        <td>1</td>
+        <td>3+</td>
+        <td>12</td>
+        <td>-4</td>
+        <td>D6+1</td>
+    </tr>
+    <tr>
+        <td>BLAST,<br>DEV</td>
+        <td>24"</td>
+        <td>3D6</td>
+        <td>3+</td>
+        <td>8</td>
+        <td>-1</td>
+        <td>2</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>6</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-2</td>
+            <td>3</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">CORE - <strong>Deadly Demise D6, Deep Strike</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Eternity Gate</strong> - In the Reinforcements step of your Movement phase, you can select one NECRONS INFANTRY unit from your army that is either in Reserves or on the battlefield (if you select the latter, remove that unit from the battlefield and place it into Reserves). That unit is then set up anywhere on the battlefield that is wholly within 6" of this model and not within Engagement R of any enemy models. That unit cannot declare a charge this turn.</td>
+      </tr>
+  </table>
+    <table>
+      <tr>
+      <th>DAMAGED: 1-7 WOUNDS REMAINING</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">While this model has 1-7 wounds remaining, subtract 4 from its Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.</td>
+      </tr>
+  </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>VEHICLE, TITANIC, FLY, TOWERING, MONOLITH</strong></p>
+
+    </div>
+
+    <div class="item swarm hidden-div">
+        <h1>Canoptek Scarab Swarms</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>10"</td>
+            <td>2</td>
+            <td>6+</td>
+            <td>4</td>
+            <td>8</td>
+            <td>0</td>
+        </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>LETH</td>
+            <td>6</td>
+            <td>5+</td>
+            <td>2</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Self-destruction</strong> - At the start of the Fight phase, if this unit is within Engagement Range of one or more enemy units, you can select one model in this unit to destroy. If you do, select one enemy unit within Engagement Range of that model and roll one D6, adding 1 to the result if that unit is a VEHICLE. On a 2-5, that unit suffers D3 mortal wounds; on a 6+, that unit suffers 3 mortal wounds.
+
+            <br><br>
+            <strong>Chittering swarm</strong> - While an enemy unit is within Engagement Range of this unit, subtract 1 from the Objective Control characteristic of models in that enemy unit (to a minimum of 1). While this unit is within 6" of one or more friendly CRYPTEK models, the Objective Control characteristic of models in this unit is 1.
+          </td>
+      </tr>
+  </table>
+  <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>SWARM, FLY, CANOPTEK, SCARAB SWARMS</strong></p>
+    </div>
+
+    <div class="item spyder hidden-div">
+        <h1>Canoptek spyders</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>5"</td>
+            <td>7</td>
+            <td>3+</td>
+            <td>6</td>
+            <td>8+</td>
+            <td>2</td>
+        </tr>
+      </table>
+      <table>
+          <tr>
+            <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+              <th>R</th>
+              <th>A</th>
+              <th>BS</th>
+              <th>S</th>
+              <th>AP</th>
+              <th>D</th>
+          </tr>
+          <tr>
+              <td>BLAST<BR>DEVA</td>
+              <td>18</td>
+              <td>D6</td>
+              <td>3+</td>
+              <td>6</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>5</td>
+            <td>4+</td>
+            <td>8</td>
+            <td>-2</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">CORE - <strong>Deadly Demise 1</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Canoptek Swarm</strong> - In your Command phase, select one friendly CANOPTEK SCARAB SWARM unit within 6" of this unit. One destroyed model is returned to that CANOPTEK SCARAB SWARM unit for each SPYDER model in this unit.</td>
+      </tr>
+  </table>
+  <table>
+      <tr>
+      <th>WARGEAR ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+            <strong>Fabricator Claw Array (Aura)</strong> While a friendly NECRONS VEHICLE unit is within 6" of the bearer, that unit has the Feel No Pain 6+ ability.
+            <br><br>
+            <strong>Gloom Prism (Aura)</strong> - While a friendly NECRONS unit is within 6" of the bearer, models in that unit have the Feel No Pain 5+ ability against mortal wounds and Psychic Attacks.
+          </td>
+      </tr>
+  </table>
+  <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>VEHICLE, FLY, CANOPTEK, SPYDERS</strong></p>
+    </div>
+
+    <div class="item wraith hidden-div">
+        <h1>Canoptek wraith</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>10"</td>
+            <td>6</td>
+            <td>3+</td>
+            <td>4+</td>
+            <td>4</td>
+            <td>8+</td>
+            <td>2</td>
+        </tr>
+      </table>
+      <table>
+          <tr>
+            <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+              <th>R</th>
+              <th>A</th>
+              <th>BS</th>
+              <th>S</th>
+              <th>AP</th>
+              <th>D</th>
+          </tr>
+          <tr>
+              <td>DEVA,<BR>PSTL</td>
+              <td>12"</td>
+              <td>3</td>
+              <td>4+</td>
+              <td>5</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>4</td>
+            <td>4+</td>
+            <td>6</td>
+            <td>-1</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Wraith Form</strong> - Each time this unit ends a Normal move, you can select one enemy unit it moved over during that move and roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound.</td>
+      </tr>
+  </table>
+  <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>BEASTS, FLY, CANOPTEK, WRAITHS</strong></p>
+    </div>
+
+    <div class="item dda">
+        <h1>Doomsday ark</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>10"</td>
+            <td>9</td>
+            <td>3+</td>
+            <td>4+</td>
+            <td>14</td>
+            <td>7+</td>
+            <td>5</td>
+        </tr>
+      </table>
+      <table>
+          <tr>
+            <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+              <th>R</th>
+              <th>A</th>
+              <th>WS</th>
+              <th>S</th>
+              <th>AP</th>
+              <th>D</th>
+          </tr>
+          <tr>
+              <td>BLAST,<BR>HEAVY</td>
+              <td>72"</td>
+              <td>D6+1</td>
+              <td>3+</td>
+              <td>18</td>
+              <td>-4</td>
+              <td>4</td>
+          </tr>
+          <tr>
+              <td>LETH,<BR>RF5</td>
+              <td>24"</td>
+              <td>5</td>
+              <td>3+</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>3</td>
+            <td>4+</td>
+            <td>6</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">CORE - <strong>Deadly Demise D3</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Overwhelming Obliteration</strong> - In your Movement phase, if this model Remains Stationary, until the end of the turn, its doomsday cannon has the [DEVASTATING WOUNDS] ability.</td>
+      </tr>
+  </table>
+  <table>
+      <tr>
+      <th>DAMAGED: 1-5 WOUNDS REMAINING</th>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.</td>
+      </tr>
+  </table>
+  <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>VEHICLE, FLY, DOOMSDAY ARK</strong></p>
+    </div>
+
+
+    <div class="item sd hidden-div">
+        <h1>Skorpekh Destroyer</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>8"</td>
+            <td>6</td>
+            <td>3+</td>
+            <td>3</td>
+            <td>7+</td>
+            <td>2</td>
+        </tr>
+      </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>4</td>
+            <td>3+</td>
+            <td>7</td>
+            <td>-2</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Whirling Onslaught</strong> - Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1. If this unit made a Charge move this turn, you can re-roll the Hit roll instead.</td>
+      </tr>
+  </table>
+  <table>
+      <tr>
+      <th>WARGEAR ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Plasmacyte:</strong> - Once per battle for each Plasmacyte this unit has, when this unit is selected to fight, you can use this ability. If you do, until the end of the phase, melee weapons equipped by models in this unit have the [DEVASTATING WOUNDS] ability.</td>
+      </tr>
+  </table>
+  <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, DESTROYER CULT, SKORPEKH DESTROYERS</strong></p>
+    </div>
+
+    <div class="item sl hidden-div">
+        <h1>Skorpekh Lord</h1>
+    </div>
+    <div class="description">
+        <table>
+          <tr>
+              <th>M</th>
+              <th>T</th>
+              <th>Sv</th>
+              <th>Inv</th>
+              <th>W</th>
+              <th>Ld</th>
+              <th>OC</th>
+          </tr>
+          <tr>
+              <td>8"</td>
+              <td>7</td>
+              <td>3+</td>
+              <td>4+</td>
+              <td>7</td>
+              <td>6+</td>
+              <td>2</td>
+          </tr>
+        </table>
+        <table>
+      <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+          <th>R</th>
+          <th>A</th>
+          <th>BS</th>
+          <th>S</th>
+          <th>AP</th>
+          <th>D</th>
+      </tr>
+      <tr>
+          <td>RF2</td>
+          <td>18"</td>
+          <td>2</td>
+          <td>2+</td>
+          <td>6</td>
+          <td>-1</td>
+          <td>1</td>
+      </tr>
+      </table>
+      <table>
+          <tr>
+            <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+              <th>A</th>
+              <th>WS</th>
+              <th>S</th>
+              <th>AP</th>
+              <th>D</th>
+          </tr>
+          <tr>
+              <td></td>
+              <td>8</td>
+              <td>2+</td>
+              <td>6</td>
+              <td>-1</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td></td>
+              <td>4</td>
+              <td>2+</td>
+              <td>10</td>
+              <td>-3</td>
+              <td>3</td>
+          </tr>
+      </table>
+    <table>
+        <tr>
+        <th>ABILITIES</th>
+        </tr>
+        <tr>
+            <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Leader</strong> </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+        </tr>
+        <tr>
+            <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">
+              <strong>United In Destruction</strong> - While this model is leading a unit, melee weapons equipped by models in that unit have the [LETHAL HITS] ability.
+              <br><br>
+              <strong>Crimson Harvest</strong> - ach time this model ends a Charge move, select one enemy unit within Engagement R of this model and roll one D6: on a 2-5, that unit suffers D3 mortal wounds; on a 6, that unit suffers D3+3 mortal wounds.</td>
+        </tr>
+    </table>
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - <strong>INFANTRY, CHARACTER, DESTROYER CULT, SKORPEKH LORD</strong></p>
+    </div>
+
+    <div class="item tsk hidden-div">
+        <h1>The Silent King</h1>
+    </div>
+    <div class="description">
+      <table>
+          <tr>
+              <th>M</th>
+              <th>T</th>
+              <th>Sv</th>
+              <th>Inv</th>
+              <th>W</th>
+              <th>Ld</th>
+              <th>OC</th>
+          </tr>
+          <tr>
+              <td>8"</td>
+              <td>10</td>
+              <td>2+</td>
+              <td>4+</td>
+              <td>16</td>
+              <td>6+</td>
+              <td>6</td>
+          </tr>
+      </table>
+      <table>
+          <tr>
+              <th>M</th>
+              <th>T</th>
+              <th>Sv</th>
+              <th>Inv</th>
+              <th>W</th>
+              <th>Ld</th>
+              <th>OC</th>
+          </tr>
+          <tr>
+              <td>8"</td>
+              <td>10</td>
+              <td>2+</td>
+              <td>4+</td>
+              <td>5</td>
+              <td>6+</td>
+              <td>1</td>
+          </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>24"</td>
+        <td>1</td>
+        <td>2+</td>
+        <td>14</td>
+        <td>-4</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>DEV</td>
+        <td>24"</td>
+        <td>2</td>
+        <td>2+</td>
+        <td>10</td>
+        <td>-3</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>IND</td>
+        <td>24"</td>
+        <td>12</td>
+        <td>2+</td>
+        <td>6</td>
+        <td>-1</td>
+        <td>1</td>
+    </tr>
+</table>
+
+      <table>
+          <tr>
+            <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+              <th>A</th>
+              <th>WS</th>
+              <th>S</th>
+              <th>AP</th>
+              <th>D</th>
+          </tr>
+          <tr>
+              <td></td>
+              <td>1</td>
+              <td>4+</td>
+              <td>4</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>LETH</td>
+              <td>12</td>
+              <td>2+</td>
+              <td>8</td>
+              <td>-3</td>
+              <td>2</td>
+          </tr>
+      </table>
+      <table>
+      <tr>
+          <th>TRIARCH ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Phaeron of the Stars (Aura)</strong> - While a friendly NECRONS unit is within 6" of this unit’s Szarekh model, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.
+      <br><br>
+          <strong>Phaeron of the Blades (Aura)</strong> - While a friendly NECRONS unit is within 6" of this unit’s Szarekh model, you can re-roll Charge rolls made for that unit and each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.
+      <br><br>
+          <strong>Bringer of Unity (Aura)</strong> - While a friendly NECRONS unit is within 6" of this unit’s Szarekh model, you can ignore any or all modifiers to the characteristics of models in that unit and to any roll or test made for models in that unit (excluding modifiers to saving throws).
+      </td>
+      </tr>
+    </table>
+      <table>
+        <tr>
+        <th>ABILITIES</th>
+        </tr>
+        <tr>
+            <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"> CORE - <strong>Deadly Demise D6+3 (Szarekh model only)</strong></td>
+        </tr>
+        <tr>
+            <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">FACTION - <strong>Reanimation Protocols</strong></td>
+        </tr>
+        <tr>
+            <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;"><strong>Voice of the Triarch</strong> - At the start of the battle round, select one Triarch ability (see left). Until the start of the next battle round, this unit has that ability.<br><br>
+            <strong>The Silent King</strong> - While a friendly NECRONS unit is within 6" of this unit’s Szarekh model, improve that unit’s Leadership characteristic by 1.</td>
+        </tr>
+    </table>
+
+    <table>
+      <tr>
+          <th>DAMAGED: 1-6 WOUNDS REMAINING</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character; color: white; font-size:12px;">While this unit’s Szarekh model has 1-6 wounds remaining, halve the Attacks characteristic of that model’s weapons, and each time this unit makes an attack, subtract 1 from the Hit roll.</td>
+      </tr>
+  </table>
+
+    <p style="font-size: 15px; color: #ffffff;"> KEYWORDS - ALL MODELS: <strong>VEHICLE, EPIC HERO</strong> | SZAREKH MODEL: <strong>CHARACTER, THE SILENT KING</strong></p>
+    </div>
+
+<script>
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+        item.addEventListener('click', function() {
+            // Collapse all descriptions
+            items.forEach(i => {
+                if (i !== this) {
+                    i.classList.remove('active');
+                    const description = i.nextElementSibling;
+                    description.style.maxHeight = null;
+                }
+            });
+
+            // Toggle the clicked item
+            this.classList.toggle('active');
+            const description = this.nextElementSibling;
+            if (description.style.maxHeight) {
+                description.style.maxHeight = null;
+            } else {
+                description.style.maxHeight = description.scrollHeight + "px";
+            }
+        });
+    });
+</script>
+
 </body>
-<!-- <div class="section" style="margin-top:15vw; margin-left:35vw;margin-right:5vw;" > -->
-<div class="title" style="background-image:url(./contents/res_0.jpg);justify-content: left;margin-top:30%;">
-    <div class="part"><t2 style="left:-30px;"> About </t2></div></div>
-</div>
-<body>
-    <div class="outer">
-      <div class="divprofile">
-        <div class="divprofile_img">
-          <img src="./contents/theo4.jpg" class="profile" /></br>
-        </div>
-        <div class="divprofile_text">
-          <p class="description">
-            My name is <strong>Theo Deprelle</strong>. I'm a french AI engineer and scientist. I current work for <a href="https://www.veesual.ai/" style="color:black;text-decoration: underline;">Veesual</a>, as their new Senior Research Engineer.<br>
-            <!-- On september 5th, I will be joing <a href="https://www.veesual.ai/" style="color:black;text-decoration: underline;">Veesual</a> in Paris, a french virtual try on startup as a Senior Research Engineer. -->
-            I am happy to discuss anything from PhD applications, PhD life, to internships, full-time jobs, startups and so on. Feel free to hit me at: <br>
-          </p>
-          <div style="transform:rotate(-.5deg); margin-top:20px;">
-            <t3 class="code">
-                  theo.deprelle[at]gmail.com
-            </t3>
-          </div>
-        </div>
-      </div>
-    </div>
-</body>
-<div class="title" style="background-image:url(./contents/res_1.jpg);justify-content: left;">
-<div class="part"><t2 style="left:-30px;"> Timeline </t2></div>
-</div>
-<body>
-  <div class="outer">
-    <section id="timeline">
-      <div class="tl-item">
-        <div class="tl-bg" style="background-image: url(./contents/epfl.jpg);">
-          <div class="overlay" style="background-image: url(./contents/border_1.png);"></div>
-        </div>
-        <div class="tl-year">
-          <p class="f2 heading--sanSerif">2017</p>
-        </div>
-        <div class="tl-content">
-          <h1>---</h1>
-          <p style="text-align:left;color:black;font-size:.8vw;text-align:justify;"><bold style="color:red; font-size: 1.5vw;">Lyon and Lausanne.</bold><br>I graduated from INSA Lyon and I got the chance to spend several months in Lausanne at EPFL as an exchange student. </p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-bg" style="background-image: url(./contents/sf.jpg)">
-          <div class="overlay" style="background-image: url(./contents/border_2.png);"></div>
-        </div>
-        <div class="tl-year">
-          <p class="f2 heading--sanSerif">2018</p>
-        </div>
-        <div class="tl-content">
-          <h1>----</h1>
-          <p style="text-align:left; color:black;font-size:.8vw;"><bold style="color:red; font-size: 1.5vw;">Adobe Inc.</bold><br> During my PhD, I spent some time in San Francisco while working for Adobe.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-bg" style="background-image: url(./contents/enpc2.jpg)">
-          <div class="overlay" style="background-image: url(./contents/border_3.png);"></div>
-        </div>
-        <div class="tl-year">
-          <p class="f2 heading--sanSerif" style="color : black;opacity:100%;">2022</p>
-        </div>
-        <div class="tl-content">
-          <h1>----</h1>
-          <p style="text-align:left;color:black;font-size:.8vw;text-align:justify;"><bold style="color:red; font-size: 1.5vw;">My Phd.</bold><br> I got my PhD from &#xC9;cole des Ponts ParisTech. During that time, I taught a bit engineering students and published several research papers.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-bg" style="background-image: url(./contents/paris2.jpg)">
-          <div class="overlay" style="background-image: url(./contents/border_4.png);"></div>
-        </div>
-        <div class="tl-year">
-          <p class="f2 heading--sanSerif">Now</p>
-        </div>
-        <div class="tl-content">
-          <h1>----</h1>
-          <p style="text-align:left;color:black;font-size:.8vw;"><bold style="color:red; font-size: 1.5vw;">Joining a start-up.</bold><br> Starting a new journey in Paris with <a href="https://www.veesual.ai/" style="color:black;text-decoration: underline;">Veesual</a> as their new Senior Research Engineer.</p>
-          <!-- <p style="text-align:left;color:black;font-size:.9vw;"><strong>Joining a start-up.</bold><br> Starting september 5th I will be working at <a href="https://www.<a href="https://www.veesual.ai/" style="color:black;text-decoration: underline;">Veesual</a>.ai/" style="color:black;"><a href="https://www.veesual.ai/" style="color:black;text-decoration: underline;">Veesual</a></a>. Its founders trust me as their new Senior Research Engineer.</p> -->
-        </div>
-      </div>
-    </section>
-    <section id="timeline_mobile">
-      <div class="tl-mobile-item" style="background-image: url(./contents/epfl.jpg)">
-        <div class="overlay" style="background-image: url(./contents/border_1.png);"></div>
-        <div class="tl-mobile-date">
-          <strong>2017</strong>
-        </div>
-      </div>
-      <div class="tl-mobile-desc">
-        <p class="tl-mobile-desc-text"><bold style="color:red; font-size:4vw;">Lyon and Lausanne.</bold><br>I graduated from INSA Lyon and I got the chance to spend several months in Lausanne at EPFL as an exchange student. </p>
-      </div>
-      <div class="tl-mobile-item" style="background-image: url(./contents/sf.jpg)">
-        <div class="overlay" style="background-image: url(./contents/border_2.png);"></div>
-        <div class="tl-mobile-date">
-          <strong>2018</strong>
-        </div>
-      </div>
-      <div class="tl-mobile-desc">
-        <p class="tl-mobile-desc-text"><bold style="color:red; font-size:4vw;">Adobe Inc.</bold><br> During my PhD, I spent some time in San Francisco while working for Adobe.</p>
-      </div>
-      <div class="tl-mobile-item" style="background-image: url(./contents/enpc.jpg)">
-        <div class="overlay" style="background-image: url(./contents/border_3.png);"></div>
-        <div class="tl-mobile-date">
-          <strong>2022</strong>
-        </div>
-      </div>
-      <div class="tl-mobile-desc">
-        <p class="tl-mobile-desc-text"><bold style="color:red; font-size:4vw;">My Phd.</bold><br> I got my PhD from &#xC9;cole des Ponts ParisTech. During that time, I taught a bit engineering students and published several research papers.</p>
-      </div>
-      <div class="tl-mobile-item" style="background-image: url(./contents/paris.jpg)">
-        <div class="overlay" style="background-image: url(./contents/border_4.png);"></div>
-        <div class="tl-mobile-date">
-        <strong> Now</strong>
-        </div>
-      </div>
-      <div class="tl-mobile-desc">
-        <p class="tl-mobile-desc-text"><bold style="color:red; font-size:4vw;">Joining a start-up.</bold><br> Starting a new journey in Paris with <a href="https://www.veesual.ai/" style="color:black;text-decoration: underline;">Veesual</a> as their new Senior Research Engineer.</p>
-      </div>
-    </section>
-  </div>
-  </body>
-  <div class="title" style="background-image:url(./contents/res_3.jpg);justify-content: left;">
-      <div class="part"><t2> Former research projects </t2></div>
-  </div>
-  <body>
-      <div class="outer">
-        <div class="divprofile">
-          <!-- <div class="divprofile" style="width:30%;">
-            <img src="./contents/theo2.jpeg" class="profile" /></br>
-          </div> -->
-          <div class="research_text">
-            <p class="description">
-              During my PhD, I collaborated with two teams of researchers from Adobe on the topics of 3D computer vision, deep learning, differentiable geometry and topology. My work was published to one of the best AI conferences (NeurIPS). Here are a few links related to my thesis for the most curious ones:
-            </p>
-          </div>
-          <div class="research_link">
-            <nav class="menu menu--adsila" style="text-align:left;margin-left:5vw;line-height: 3em;">
-    					<a class="menu__item" href="https://scholar.google.com/citations?user=xU9q1ncAAAAJ&hl=fr">
-    						<span class="menu__item-name">Google scholar</span><br>
-    						<span class="menu__item-label">List of my publications</span>
-    					</a>
-              <a class="menu__item" href="https://youtu.be/tKna0bU-2Ag?t=304">
-    						<span class="menu__item-name">Topology</span><br>
-    						<span class="menu__item-label">A bretzel story by G&eacute;rard Besson</span>
-    					</a>
-    					<a class="menu__item" href="https://youtu.be/tKna0bU-2Ag?t=1829">
-    						<span class="menu__item-name">Differential geometry</span><br>
-    						<span class="menu__item-label">An introduction to differential geometry</span>
-    					</a>
-              <a class="menu__item" href="https://www.youtube.com/watch?v=5q87K1WaoFI&ab_channel=WIRED">
-                <span class="menu__item-name">Machine Learning</span><br>
-                <span class="menu__item-label">A video from Wired about AI and neural networks</span>
-              </a>
-    				</nav>
-          </div>
-        </div>
-      </div>
-  </body>
-  <div class="title" style="background-image:url(./contents/res_4.jpg);justify-content:left;">
-      <div class="part"><t2> Miscellaneous </t2></div>
-  </div>
-  <body>
-    <div style="margin:5vw;margin-left: 0;margin-right: 0; width:100%;">
-      <p class="description">When I'm not with my friends and family, I dedicate my free time to grow a jungle in my living room, code video game puzzles, and generate paintings from buggy algorithm. For the later <a href="https://reas.com/" style="color:black;text-decoration: underline;">Casey Reas</a> has been a huge inspiration to me. Here, I will share some of my organic and digital creations.
-    </p>
-    </div>
-    <div class="creation_list">
-      <figure class="creations">
-          <img src="./contents/sphere.jpg" class="profile" style="border-radius:0; width:100%; transform: rotate(.5deg);" />
-          <figcaption style="text-align:left;">Spherical puzzle 04/21.</figcaption>
-      </figure>
-      <figure class="creations">
-          <img src="./contents/circles_3.jpg" class="profile" style="border-radius:0; width:100%; transform: rotate(.5deg);" />
-          <figcaption style="text-align:left;">Circles &#8470;1, 07/22.</figcaption>
-      </figure>
-      <figure class="creations">
-          <img src="./contents/circles_2.jpg" class="profile" style="border-radius:0; width:100%; transform: rotate(-.5deg);" />
-          <figcaption style="text-align:left;">Circles &#8470;2, 07/22.</figcaption>
-      </figure>
-      <figure class="creations">
-          <img src="./contents/circles_9.jpg" class="profile" style="border-radius:0; width:100%; transform: rotate(1deg);" />
-          <figcaption style="text-align:left;">Circles &#8470;3, 07/22.</figcaption>
-      </figure>
-    </div>
-  </body>
-  <div class="title" style="background-image:url(./contents/res_5.jpg);justify-content:left;">
-      <div class="part"><t2 style="opacity:0;"> Miscellaneous </t2></div>
-  </div>
-  <p style="color:grey;font-size:2vh;">Image of the timeline :
-  “View from Parc des Buttes-Chaumont” by <a href="https://www.flickr.com/photos/15979685@N08/" style="color:black;text-decoration: underline;">Eric Huybrechts</a> is licensed under CC BY-ND 2.0
-  - “EPFL’s Rolex Learning Center” by <a href="https://commons.wikimedia.org/wiki/File:EPFL%E2%80%99s_Rolex_Learning_Center.jpg" style="color:black;text-decoration: underline;">Bernard Vogel</a> is licensed under CC BY-ND 2.0
-  - “North Beach, San Francisco, United States” by <a href="https://commons.wikimedia.org/wiki/File:North_Beach,_San_Francisco,_United_States_%28Unsplash%29.jpg" style="color:black;text-decoration: underline;">Kimson Doan</a> is licensed under CC BY-ND 1.0
-  - “Ponts-carnot” by <a href="https://commons.wikimedia.org/wiki/File:Ponts-carnot.jpg" style="color:black;text-decoration: underline;">Escm2001</a> is licensed under CC BY-SA 4.0</p>
 </html>
