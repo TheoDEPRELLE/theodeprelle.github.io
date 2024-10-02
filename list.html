@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Stack with Tables in Descriptions</title>
+    <title>W40K list</title>
     <link rel="icon" href="path-to-favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,6 +159,16 @@
               background-position: top -30px left;
             }
 
+            .item.void {
+              background-image: url('./contents/Shard-of-the-Void-Dragon-Warhammer-40000-MtG-Art-1024x576.jpg');
+              background-position: top 0px left;
+            }
+
+            .item.trans {
+              background-image: url('./contents/Caged-Sun.jpg');
+              background-position: top -10px left;
+            }
+
             .item.flayed {
               background-image: url('./contents/Flayed-One-Warhammer-40000-MtG-Art.jpg');
               background-position: top -50px left;
@@ -175,8 +185,8 @@
             }
 
             .item.ld {
-              background-image: url('./contents/Necron_Destroyer.jpg');
-              background-position: top -40px left;
+              background-image: url('./contents/Destroyer.jpg');
+              background-position: top -100px left;
             }
 
             .item.techno {
@@ -204,7 +214,7 @@
 </head>
 <body>
 
-    <div class="item chronomancer">
+    <div class="item chronomancer hidden-div">
         <h1>Chronomancer</h1>
     </div>
     <div class="description">
@@ -287,7 +297,7 @@
 </strong></p>
     </div>
 
-    <div class="item plasmancer">
+    <div class="item plasmancer hidden-div">
         <h1>Plasmancer</h1>
     </div>
     <div class="description">
@@ -449,6 +459,114 @@
   <p style="font-size: 15px;"> KEYWORDS - <strong>INFANTRY, CHARACTER, CRYPTEK, FLY, TECHNOMANCER</strong></p>
     </div>
 
+    <div class="item void">
+        <h1>Void Dragon</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>6"</td>
+            <td>11</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>12</td>
+            <td>6+</td>
+            <td>4</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>Veh2</td>
+        <td>12"</td>
+        <td>1</td>
+        <td>2+</td>
+        <td>4</td>
+        <td>-3</td>
+        <td>D6+2</td>
+    </tr>
+    <tr>
+        <td>Blst<br>Sus2</td>
+        <td>18"</td>
+        <td>D6+3</td>
+        <td>2+</td>
+        <td>7</td>
+        <td>-1</td>
+        <td>2</td>
+    </tr>
+
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>Veh2</td>
+            <td>5</td>
+            <td>2+</td>
+            <td>12</td>
+            <td>-3</td>
+            <td>D6+2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>10</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Extra</td>
+            <td>6</td>
+            <td>2+</td>
+            <td>6</td>
+            <td>-1</td>
+            <td>1</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character;"> CORE - <strong>Deadly Demise D6, Feel No Pain 5+</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character;">
+            <strong>Matter Absorption</strong> - At the start of your Shooting phase, select one enemy VEHICLE unit within 12" of this model and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds and this model regains up to that many lost wounds.<br><br>
+            <strong>Necrodermis</strong> - Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px;"> KEYWORDS - <strong>MONSTER, CHARACTER, EPIC HERO, FLY, C’TAN SHARD OF THE VOID DRAGON</strong></p>
+    </div>
+
     <div class="item nightbringer">
         <h1>Nightbringer</h1>
     </div>
@@ -532,14 +650,104 @@
       <tr>
           <td style="text-align: left; text-justify: inter-character;">
             <strong>Drain Life</strong> - At the end of the Fight phase, roll one D6 for each enemy unit within 6" of this model: on a 4+, that enemy unit suffers D3 mortal wounds.<br><br>
-            <strong>Necrodermis</strong> -Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+            <strong>Necrodermis</strong> - Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
           </td>
       </tr>
   </table>
     <p style="font-size: 15px;"> KEYWORDS - <strong>MONSTER, CHARACTER, EPIC HERO, FLY, C’TAN SHARD OF THE NIGHTBRINGER</strong></p>
     </div>
 
-    <div class="item flayed">
+    <div class="item trans">
+        <h1>Transcendent</h1>
+    </div>
+    <div class="description">
+      <table>
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>Sv</th>
+            <th>Inv</th>
+            <th>W</th>
+            <th>Ld</th>
+            <th>OC</th>
+        </tr>
+        <tr>
+            <td>6"</td>
+            <td>11</td>
+            <td>4+</td>
+            <td>4+</td>
+            <td>12</td>
+            <td>6+</td>
+            <td>4</td>
+        </tr>
+      </table>
+      <table>
+    <tr>
+        <th><img src="https://wahapedia.ru/wh40k10ed/img/RangedWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+        <th>R</th>
+        <th>A</th>
+        <th>BS</th>
+        <th>S</th>
+        <th>AP</th>
+        <th>D</th>
+    </tr>
+    <tr>
+        <td>Aslt<br>Sus1</td>
+        <td>12"</td>
+        <td>6</td>
+        <td>2+</td>
+        <td>8</td>
+        <td>-2</td>
+        <td>D3</td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+          <th><img src="https://wahapedia.ru/wh40k10ed/img/MeleeWeapons.png" alt="Rd Weapons" style="width: 15px; height: auto;"></th>
+            <th>A</th>
+            <th>WS</th>
+            <th>S</th>
+            <th>AP</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>Sus1</td>
+            <td>8</td>
+            <td>2+</td>
+            <td>9</td>
+            <td>-3</td>
+            <td>D6</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>14</td>
+            <td>2+</td>
+            <td>8</td>
+            <td>-2</td>
+            <td>2</td>
+        </tr>
+    </table>
+  <table>
+      <tr>
+      <th>ABILITIES</th>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character;"> CORE - <strong>Deadly Demise D6, Feel No Pain 5+</strong> </td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character;">FACTION - <strong>Reanimation Protocols</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left; text-justify: inter-character;">
+            <strong>Transdimensional Displacement</strong> - Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9" horizontally away from all enemy models.<br><br>
+            <strong>Necrodermis</strong> - Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+          </td>
+      </tr>
+  </table>
+    <p style="font-size: 15px;"> KEYWORDS - <strong>MONSTER, CHARACTER, EPIC HERO, FLY, TRANCENDENT C’TAN</strong></p>
+    </div>
+
+    <div class="item flayed hidden-div">
       <h1>Flayed ones</h1>
     </div>
     <div class="description">
@@ -674,7 +882,7 @@
     <p style="font-size: 15px;"> KEYWORDS - <strong>INFANTRY, CHARACTER, DESTROYER CULT, HEXMARK DESTROYER</strong></p>
     </div>
 
-    <div class="item immo">
+    <div class="item immo hidden-div">
         <h1>Immortals</h1>
     </div>
     <div class="description">
@@ -964,7 +1172,7 @@
     <p style="font-size: 15px;"> KEYWORDS - <strong></strong></p>
     </div>
 
-    <div class="item monolith">
+    <div class="item monolith hidden-div">
         <h1>Monolith</h1>
     </div>
     <div class="description">
@@ -1373,7 +1581,7 @@
     </div>
 
 
-    <div class="item sd">
+    <div class="item sd hidden-div">
         <h1>Skorpekh Destroyer</h1>
     </div>
     <div class="description">
@@ -1435,7 +1643,7 @@
   <p style="font-size: 15px;"> KEYWORDS - <strong>INFANTRY, DESTROYER CULT, SKORPEKH DESTROYERS</strong></p>
     </div>
 
-    <div class="item sl">
+    <div class="item sl hidden-div">
         <h1>Skorpekh Lord</h1>
     </div>
     <div class="description">
